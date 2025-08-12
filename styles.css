@@ -328,6 +328,8 @@ body::before {
 .social-link:nth-child(1) { animation: slideInRight 0.8s ease-out 0.8s both; }
 .social-link:nth-child(2) { animation: slideInRight 0.8s ease-out 1s both; }
 .social-link:nth-child(3) { animation: slideInRight 0.8s ease-out 1.2s both; }
+.social-link:nth-child(4) { animation: slideInRight 0.8s ease-out 1.4s both; }
+.social-link:nth-child(5) { animation: slideInRight 0.8s ease-out 1.6s both; }
 
 @keyframes slideInRight {
     from {

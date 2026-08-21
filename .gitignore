@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# env
+.env
+.env.local
+
+# next/vercel artifacts (not used here, just in case)
+.next/
+.vercel/
+
+# misc
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bid — arjun shah</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="/bid/bid.css">
+    <script>
+      // theme bootstrap: apply stored theme early to avoid flash
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'dark') document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="nav">
+        <a class="wordmark" href="/">arjun shah</a>
+        <nav class="links">
+          <a href="/blog">blog</a>
+          <a href="/videos">videos</a>
+          <a href="/art">art</a>
+          <a href="/press">press</a>
+          <a href="/socials">socials</a>
+          <a href="/bid" aria-current="page">bid</a>
+          <a href="/resume">resume</a>
+        </nav>
+        <button id="theme-toggle" class="theme-btn" aria-label="toggle theme"></button>
+      </header>
+
+      <main>
+        <section class="intro">
+          <h1>bid</h1>
+          <p class="muted">
+            your bid decides the rank. pay less than #1 and you still land on the board
+            wherever that price fits. already listed? same url bumps your bid.
+          </p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="board" class="board">
+          <div class="claim">
+            <div>
+              <div class="claim-label">claim rank #1</div>
+              <div id="claim-amount" class="claim-amount">—</div>
+            </div>
+            <div class="claim-actions">
+              <button id="btn-claim" class="btn">outbid →</button>
+              <button id="btn-takeover" class="btn ghost">takeover</button>
+            </div>
+          </div>
+
+          <div id="status" class="status"></div>
+
+          <ol id="entries" class="entries"></ol>
+
+          <div class="footnote muted" id="footnote">0 on the board</div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div>© 2026 arjun shah</div>
+        <div>san jose, california</div>
+      </footer>
+    </div>
+
+    <dialog id="modal">
+      <form id="form" method="dialog" class="modal">
+        <h2 id="modal-title">place a bid</h2>
+        <label>url or @handle<input id="f-url" name="url" required maxlength="200"></label>
+        <label>title<input id="f-title" name="title" required maxlength="80"></label>
+        <label>description<textarea id="f-desc" name="description" required maxlength="280"></textarea></label>
+        <label>email (receipt)<input id="f-email" name="email" type="email" required maxlength="120"></label>
+        <label>bid (usd)<input id="f-bid" name="bid" type="number" step="1" min="1" required></label>
+        <menu class="actions">
+          <button value="cancel" class="btn ghost">cancel</button>
+          <button id="pay" value="default" class="btn">pay →</button>
+        </menu>
+        <input type="hidden" id="f-rank" name="targetRank">
+        <input type="hidden" id="f-takeover" name="takeover">
+        <p class="muted small" id="floor-note"></p>
+      </form>
+    </dialog>
+
+    <script src="/bid/bid.js" type="module"></script>
+  </body>
+ </html>

@@ -1,0 +1,83 @@
+:root {
+  --bg:#fafafa;
+  --text:#111;
+  --muted:#777;
+  --line:#ddd;
+  --soft:#f1f1f1;
+  --radius: 18px; /* only for the tiny theme toggle */
+}
+.dark {
+  --bg:#0d0d0d;
+  --text:#ededed;
+  --muted:#888;
+  --line:#292929;
+  --soft:#171717;
+}
+* { box-sizing: border-box }
+html, body { height: 100% }
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font: 13px/1.6 Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+.page { width: min(620px, calc(100% - 40px)); margin: 0 auto; padding: 28px 0 120px }
+.nav {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.nav .wordmark { color: inherit; text-decoration: none }
+.nav .links a {
+  color: inherit; opacity: .9; text-decoration: none; margin-right: 12px;
+}
+.nav .links a[aria-current="page"] { text-decoration: underline }
+.theme-btn {
+  width: 28px; height: 28px; border-radius: 999px; border:1px solid var(--line);
+  background: var(--soft); cursor: pointer;
+}
+.divider { border-top: 1px solid var(--line); margin: 20px 0 }
+.intro h1 { margin: 0 0 6px 0; font-size: 13px; font-weight: 700; text-transform: lowercase }
+.muted { color: var(--muted) }
+.small { font-size: 12px }
+
+.board .claim {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0;
+}
+.claim-label { color: var(--muted) }
+.claim-amount { font-size: 16px }
+.btn {
+  border: 1px solid var(--line); background: transparent; color: inherit;
+  padding: 6px 10px; cursor: pointer;
+}
+.btn.ghost { background: var(--soft) }
+.status { color: var(--muted); margin: 8px 0 14px 0 }
+.entries { list-style: none; padding: 0; margin: 0 }
+.entry {
+  display: grid; grid-template-columns: 24px 1fr auto; gap: 10px;
+  padding: 10px 0; border-top: 1px solid var(--line);
+}
+.entry:first-child { border-top: none }
+.rank { color: var(--muted); width: 24px; text-align: right }
+.title a { color: inherit; text-decoration: none }
+.desc { color: var(--muted) }
+.amount { white-space: nowrap }
+.actions { display: flex; gap: 6px }
+.footnote { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px }
+
+dialog::backdrop { background: rgba(0,0,0,.25) }
+dialog { border: 1px solid var(--line); background: var(--bg); color: var(--text) }
+.modal { width: min(560px, calc(100vw - 40px)); padding: 16px }
+.modal h2 { margin: 0 0 12px 0; text-transform: lowercase; font-size: 13px }
+.modal label { display: grid; gap: 6px; margin: 10px 0 }
+.modal input, .modal textarea {
+  border: 1px solid var(--line); background: transparent; color: inherit; padding: 6px 8px;
+}
+.modal textarea { min-height: 80px; resize: vertical }
+.modal .actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px }
+.claim-actions { display: flex; gap: 8px }

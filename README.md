@@ -51,6 +51,34 @@ cd portfolio
 python3 -m http.server 8080
 ```
 
+## bid — payments + storage
+
+`/bid` is a self-contained surface styled like the live site with minimal HTML/CSS/JS. It talks to Vercel Serverless Functions in `api/bid/*`.
+
+- `GET /api/bid/leaderboard` — return board JSON
+- `POST /api/bid/checkout` — create Stripe Checkout Session; returns `{ url }`
+- `POST /api/bid/webhook` — verify signature; upsert paid listing
+- `GET /api/bid/click/:id` — increment click then redirect
+
+Environment variables (copy `.env.example`):
+
+- `STRIPE_SECRET_KEY` — Stripe restricted key (`rk_...`) that can create Checkout Sessions
+- `STRIPE_WEBHOOK_SECRET` — webhook signing secret for the “/api/bid/webhook” endpoint
+- `KV_REST_API_URL`, `KV_REST_API_TOKEN` — Vercel KV (Upstash) credentials
+- Optional tuning: `BID_TAKEOVER_PRICE_CENTS` (default 100000), `BID_MIN_ENTER_CENTS` (default 10000), `BID_MAX_ENTRIES` (default 50)
+
+Webhook URL to add in Stripe:
+
+```
+https://<your-vercel-domain>/api/bid/webhook
+```
+
+Deployment notes:
+
+- No secrets are committed. Set env vars on Vercel after deploying.
+- When KV + Stripe are present the status shows “live”; otherwise the page runs in demo mode and does not insert paid listings.
+- The board stores entries under one KV key `bid:entries:v1` and seeds the current three (SuperCompress $500, Beacon $250, CoinCell $100) on first boot.
+
 ## connect
 
 - **email** — [arjunkshah21@gmail.com](mailto:arjunkshah21@gmail.com)

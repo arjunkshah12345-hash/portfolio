@@ -1,0 +1,17 @@
+{
+  "name": "arjunshah-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Arjun Shah personal site with /bid surface and APIs",
+  "type": "module",
+  "scripts": {
+    "test": "node ./tests/smoke.mjs",
+    "format": "echo \"no formatter configured\"",
+    "typecheck": "node -e \"console.log('no types')\""
+  },
+  "dependencies": {
+    "@vercel/kv": "^1.0.1",
+    "stripe": "^16.0.0",
+    "nanoid": "^5.0.7"
+  }
+}

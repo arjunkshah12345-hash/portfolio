@@ -1,13 +1,5 @@
 {
   "name": "portfolio",
   "framework": null,
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "installCommand": null,
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "cleanUrls": true
 }

@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@vercel/kv": "^1.0.1",
-    "stripe": "^16.0.0",
+    "stripe": "^22.0.0",
     "nanoid": "^5.0.7"
   }
 }
